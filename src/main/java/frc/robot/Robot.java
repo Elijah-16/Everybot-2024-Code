@@ -89,12 +89,12 @@ public class Robot extends TimedRobot {
  /**
    * How many amps can an individual drivetrain motor use.
    */
-  static final int DRIVE_CURRENT_LIMIT_A = 40;
+  static final int DRIVE_CURRENT_LIMIT_A = 60;
 
   /**
    * How many amps the feeder motor can use.
    */
-  static final int FEEDER_CURRENT_LIMIT_A = 40;
+  static final int FEEDER_CURRENT_LIMIT_A = 60;
 
   /**
    * Percent output to run the feeder when expelling note
@@ -172,8 +172,8 @@ public class Robot extends TimedRobot {
     /*
      * One side of the drivetrain must be inverted, as the motors are facing opposite directions
      */
-    leftFront.setInverted(true);
-    rightFront.setInverted(false);
+    leftFront.setInverted(false);
+    rightFront.setInverted(true);
 
     m_drivetrain = new DifferentialDrive(leftFront, rightFront);
 
@@ -356,11 +356,11 @@ public class Robot extends TimedRobot {
     /*
      * Spins feeder wheel, wait for launch wheel to spin up to full speed for best results
      */
-    if (m_manipController.getRawButton(6))
+    if (m_manipController.getRawButton(8))
     {
       m_feedWheel.set(FEEDER_OUT_SPEED);
     }
-    else if(m_manipController.getRawButtonReleased(6))
+    else if(m_manipController.getRawButtonReleased(8))
     {
       m_feedWheel.set(0);
     }
